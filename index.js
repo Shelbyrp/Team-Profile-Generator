@@ -1,131 +1,161 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateReport = require("./lib/generateReport");
+const { exit } = require("process");
 
-const questionTeamManager = [
-  {
-    type: "confirm",
-    name: "leader",
-    message: "Are you the team leader?",
-  },
-];
+let team = [];
 
-const addTeamManager = [
-  {
-    type: "input",
-    name: "name",
-    message: "What is your name?",
-  },
-  {
-    type: "input",
-    name: "id",
-    message: "Provide your employee number",
-  },
-  {
-    type: "input",
-    name: "email",
-    message: "What is your email?",
-  },
-  {
-    type: "input",
-    name: "office",
-    message: "What is your office number?",
-  },
-];
+async function confirmManager() {
+    return response1 = await inquirer.prompt([
+        {
+            type: "confirm",
+            name: "manager",
+            message: "Are you the team manager?",
+        },
+    ]);
+};
 
-const questionMoreTeamMembers = [
-  {
-    type: "list",
-    name: "type",
-    message: "Add another team member?",
-    choices: [
-      { name: "Engineer", value: 0 },
-      { name: "Intern", value: 1 },
-      { name: "Manager", value: 2 },
-      { name: "No - finish building my team", value: 3 },
-    ],
-  },
-];
+async function menu() {
+    return response2 = await inquirer.prompt([
+        {
+            type: "list",
+            name: "type",
+            message: "Add a team member?",
+            choices: ["Manager", "Engineer", "Intern", "Exit"],
+        },
+    ])
+};
 
-const addTeamMembers = [
-  {
-    type: "input",
-    name: "name",
-    message: "What is your name?",
-  },
-  {
-    type: "input",
-    name: "id",
-    message: "Provide your employee number",
-  },
-  {
-    type: "input",
-    name: "email",
-    message: "What is your email?",
-  },
-  {
-    type: "input",
-    name: "office",
-    message: "What is your office number?",
-  },
-];
+async function addManager() {
+    return response3 = await inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your name?",
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Provide your employee number",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your email?",
+        },
+        {
+            type: "input",
+            name: "office",
+            message: "What is your office number?",
+        },
+    ])
+};
 
-function writeToFile(filename, report1) {
-  fs.writeFile(filename, report1, (err) =>
-    err ? console.log(err) : console.log("")
-  );
-}
+async function addEngineer() {
+    return response4 = await inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your name?",
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Provide your employee number",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your email?",
+        },
+        {
+            type: "input",
+            name: "GitHub",
+            message: "What is your GitHub username?",
+        },
+    ])
+};
+
+async function addIntern() {
+    return response5 = await inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your name?",
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Provide your employee number",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your email?",
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "What is your school?",
+        },
+    ])
+};
+
+function writeToFile(filename, team) {
+    fs.writeFile(filename, team, (err) =>
+        err ? console.log(err) : console.log("")
+    );
+};
 
 function init() {
-  // Nest 1 - Get team leader information
-  inquirer.prompt(questionTeamManager).then((response) => {
-    if (!response.leader) {
-        console.log("Please ask your team leader to complete this form");
-        return;
-      };
-      // Nest 2 - Get team leader information
-      inquirer
-        .prompt(addTeamManager)
-        .then((response) => {
-          response.position = "Team Manager";
-          const report1 = generateReport.generateReport(response);
-          writeToFile(filename, report1);
-          console.log(response.position);
-          console.log("RESULT: ", response);
-          // Nest 3 - prompt to add more team members
-          inquirer
-            .prompt(questionMoreTeamMembers)
-            .then((response) => {
-              if (response.type === 3) {
-                console.log("To exit");
-                return;
-              } else {
-                if (response.type === 0) {
-                  var positionOfStaff = "Engineer";
-                }
-                if (response.type === 1) {
-                  var positionOfStaff = "Intern";
-                }
-                if (response.type === 2) {
-                  var positionOfStaff = "Manager";
-                }
-                //Nest 4 - prompt for additional team member information
-                inquirer
-                  .prompt(addTeamMembers)
-                  .then((response) => {
-                    response["position"] = positionOfStaff;
-                    console.log("RESULT: ", response);
-                  })
-                  .catch((err) => console.log("NEGAITIVE RESULT #3 !!!"));
-              }
-            })
-            .catch((err) => console.log("NEGAITIVE RESULT #2 !!!"));
+    confirmManager()
+        .then((response1) => {
+            if (!response1.manager) {
+                console.log("Please ask your manager to complete this form");
+                exit;
+            } else {
+                menu()
+                    .then((response2) => {
+                        if (response2.type === 'Manager') {
+                            addManager()
+                                .then((response3) => {
+                                    console.log("Response 3:", response3);
+                                    team.push(response3);
+                                    console.log("Team3:", team);
+                                }
+                                )
+                                .catch(e => { console.log(e.message) })
+                        } else if (response2.type === "Engineer") {
+                            addEngineer()
+                                .then((response4) => {
+                                    console.log("Response 4:", response4);
+                                    team.push(response4);
+                                    console.log("Team4:", team);
+                                }
+                                )
+                                .catch(e => { console.log(e.message) })
+                        } else if (response2.type === "Intern") {
+                            addIntern()
+                                .then((response5) => {
+                                    console.log("Response 5:", response5);
+                                    team.push(response5);
+                                    console.log("Team5:", team);
+                                }
+                                )
+                                .catch(e => { console.log(e.message) })
+                        } else if (response2.type === "Exit") {
+                            exit;
+                        } else {
+                            console.log("Got here");
+                            writeToFile(filename, team);
+                        }
+                    })
+                    .catch(e => { console.log(e.message) });
+            };
         })
-        .catch((err) => console.log("NEGAITIVE RESULT #1 !!!"));
-    }
-  )
-}
-
+        .catch(e => { console.log(e.message) });
+};
 // This init the function to invoke the app
 const filename = "test.txt";
 init();
+
