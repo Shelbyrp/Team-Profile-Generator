@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateReport = require("./lib/generateReport");
 
-const teamManager = [
+const addTeamManager = [
   {
     type: "input",
     name: "name",
@@ -30,16 +30,16 @@ const teamManager = [
   },
 ];
 
-const addTeamMembers = [
+const question = [
   {
     type: "list",
-    name: "add",
-    message: "Add another team members?",
-    choices: ["Engineer", "Intern", "Manager", "No - finish building my team"],
+    name: "type",
+    message: "Add another team member?",
+    choices: [{name: "Engineer", value: 0}, {name: "Intern", value: 1}, {name: "Manager", value: 2}, {name: "No - finish building my team", value: 3}],
   },
 ];
 
-const teamMembers = [
+const addTeamMembers = [
   {
     type: "input",
     name: "name",
@@ -71,36 +71,38 @@ function writeToFile(filename, report1) {
 function init() {
   // Nest 1 - Get team leader information
   inquirer
-    .prompt(teamManager)
+    .prompt(addTeamManager)
     .then((team) => {
       const report1 = generateReport.generateReport(team);
       writeToFile(filename, report1);
-
-      // Nest 2 - prompt to add more team members
+     // Nest 2 - prompt to add more team members
       inquirer
-        .prompt(addTeamMembers)
-        .then((result1) => {
-          console.log("RESULT 1: ", result1);
-          if (
-            result[0] === "Engineer" ||
-            result[0] === "Intern" ||
-            result[0] === "Manager"
-          ) {
+        .prompt(question)
+        .then((responses) => {
+            if (responses.type === 0){
+            const positionOfStaff = "Engineer";
+            console.log("GOT PAST ENGINEER", positionOfStaff);
+            } else if (responses.type === 1){
+                const positionOfStaff = "Intern";
+            } else if (responses.type === 2){
+                const positionOfStaff = "Manager";
+            } else {
+                return "No - finish building my team";
+            };
+            console.log("RESULT: ", positionOfStaff);
             //Nest 3 - prompt for additional team member information
             inquirer
               .prompt(addTeamMembers)
               .then((result2) => {
-                console.log("RESULT 2: ", result2);
+                console.log("RESULT: ", result2);
               })
-              .catch((err) => console.log("NEGAITIVE RESULT #2 !!!"));
-          } else {
-            return;
-          }
+              .catch((err) => console.log("NEGAITIVE RESULT #3 !!!"));
         })
         .catch((err) => console.log("NEGAITIVE RESULT #2 !!!"));
     })
-    .catch((err) => console.log("NEGAITIVE RESULT !!!"));
-}
+    .catch((err) => console.log("NEGAITIVE RESULT #1 !!!"));
+};
 
-const filename = "README.md";
+// This init the function to invoke the app
+const filename = "test.txt";
 init();
