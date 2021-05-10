@@ -1,4 +1,3 @@
-
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateReport = require("./lib/generateReport");
@@ -11,6 +10,7 @@ const Intern = require("./lib/Intern");
 const employees = [];
 
 async function userInput(status) { //1}
+    // console.log("Current status =", status);
     switch (status) { //2}
         case "confirm":
             // Confirm Manager
@@ -82,7 +82,6 @@ async function userInput(status) { //1}
                     switch (response.addMember) { //8}
                         case "No":
                             console.log("The team list will be generated");
-                            writeToFile(team);
                             break;
                         case "Yes":
                             inquirer
@@ -215,11 +214,8 @@ function addNext(status) {
     userInput(status);
 };
 
-function writeToFile(team) {
-    let filename = "test.txt";
-    let teamData = JSON.stringify(team);
-    console.log("Object:", typeof team, team, "STRING:", typeof teamData, teamData);
-    fs.writeFile(filename, teamData, (err) =>
+function writeToFile(filename, team) {
+    fs.writeFile(filename, team, (err) =>
         err ? console.log(err) : console.log("")
     );
 };
