@@ -1,1 +1,1 @@
-[{"name":"Shelby","id":"123","email":"shelby@test.com.au","officeNumber":"321"},{"name":"Chris","id":"234","email":"chris@test.com.au","github":"chrisc"},{"name":"Otis","id":"345","email":"otis@test.com.au","school":"UWA"}]
+[{"name":"shelby","id":"123","email":"shelby@test.com.au","officeNumber":"321"},{"name":"Chris","id":"234","email":"chris@test.com.au","github":"chrisc"},{"name":"Otis","id":"345","email":"otis@test.com.au","school":"UWA"}]
