@@ -2,7 +2,7 @@ const Employee = require("../lib/Employee.js");
 
 describe("Employee", () => {
 
-    it('If no information is passed, show an error', () => {
+    it('If no information is passed to the application, show an error', () => {
         expect(() => {          
               new Employee();
        }).toThrow('Please provide a name, id and email');
