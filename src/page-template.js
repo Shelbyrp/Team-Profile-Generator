@@ -1,6 +1,7 @@
 const prettier = require("prettier");
 
 function generateHTML(data) {
+  console.log(data);
   return `
   <!DOCTYPE html>
   <html>
@@ -70,14 +71,12 @@ function createManagerCard(manager) {
           </div>
           <div class="form-group">
             <label for="reserve-email" id="reserve-email">Email: <a href = "mailto: ${
-                manager.email
-              }">${
               manager.email
-            }</a></label>
+            }">${manager.email}</a></label>
           </div>
           <div class="form-group">
               <label for="reserve-phone" id="reserve-office">Office Number: ${
-                manager.office
+                manager.officeNumber
               }</label>					
           </div>				
           </form>
@@ -113,17 +112,13 @@ function createEngineerCard(engineer) {
         </div>
         <div class="form-group">
           <label for="reserve-email" id="reserve-email">Email: <a href = "mailto: ${
-              engineer.email
-            }">${
             engineer.email
-          }</a></label>
+          }">${engineer.email}</a></label>
         </div>
         <div class="form-group">
                 <label for="reserve-phone" id="reserve-office-number">Github: <a href = "https://github.com/${
-                    engineer.github
-                  }">${
                   engineer.github
-                }</label>					
+                }">${engineer.github}</label>					
             </div>				
         </form>
     </div>
@@ -148,7 +143,7 @@ function makeInternCard(intern) {
       <form role="form">	
       <div class="form-group">
       <label class="title" for="reserve-unique-id" id="reserve-unique-id">NAME: ${
-       intern.name
+        intern.name
       }</label>
       </div>		
         <div class="form-group">
@@ -158,15 +153,13 @@ function makeInternCard(intern) {
         </div>
         <div class="form-group">
         <label for="reserve-email" id="reserve-email">Email: <a href = "mailto: ${
-            intern.email
-          }">${
           intern.email
-        }</a></label>
+        }">${intern.email}</a></label>
       </div>
         <div class="form-group">
                 <label for="reserve-phone" id="reserve-office-number">School: ${
-                    intern.school
-                  }</label>	
+                  intern.school
+                }</label>	
                 </label>					
             </div>				
         </form>

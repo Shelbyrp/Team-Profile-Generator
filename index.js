@@ -57,8 +57,8 @@ async function userInput(status) {
                   },
                   {
                     type: "input",
-                    name: "office",
-                    message: "What is your office number?",
+                    name: "officeNumber",
+                    message: "What is your officeNumber number?",
                   },
                 ])
                 // Add Manager details to Team
@@ -67,14 +67,13 @@ async function userInput(status) {
                     response1.name,
                     response1.id,
                     response1.email,
-                    response1.office,
                     "Manager"
                   );
                   const manager = new Manager(
                     response1.name,
                     response1.id,
                     response1.email,
-                    response1.office,
+                    response1.officeNumber,
                     "Manager"
                   );
                   console.log("Manager = ", manager);
@@ -166,14 +165,7 @@ async function userInput(status) {
                         ])
                         // Add Engineer details to Team
                         .then((response2) => {
-                            const employee = new Employee(
-                                response2.name,
-                                response2.id,
-                                response2.email,
-                                response2.office,
-                                "Engineer"
-                              );
-                          const engineer = new Engineer(
+                            const engineer = new Engineer(
                             response2.name,
                             response2.id,
                             response2.email,

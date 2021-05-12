@@ -5,7 +5,7 @@ describe("Manager", () => {
   it("Can set office number via the parameter passed", () => {
     const test = 9400000;
     const manager = new Manager("Shelby", 1, "info@test.com", test);
-    expect(manager.office).toEqual(test);
+    expect(manager.officeNumber).toEqual(test);
   });
 
   it('getRole() to return "Manager"', () => {
@@ -14,10 +14,10 @@ describe("Manager", () => {
     expect(manager.getRole()).toEqual(test);
   });
 
-  it("Can get office number via getOffice()", () => {
+  it("Can get office number via getOfficeNumber()", () => {
     const test = 9400000;
     const manager = new Manager("Foo", 1, "test@test.com", test);
-    expect(manager.getOffice()).toEqual(test);
+    expect(manager.getOfficeNumber()).toEqual(test);
   });
 
 });
