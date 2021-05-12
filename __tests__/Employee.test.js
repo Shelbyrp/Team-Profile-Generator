@@ -14,10 +14,27 @@ describe("Employee", () => {
     });
 
     it("Name can be set via the passed arguments", () => {
-     
-         const newEmployee = new Employee();
+        const name = "Shelby";
+        const newEmployee = new Employee("Shelby", 1, "info@test.com");
         expect(newEmployee.name).toEqual(name);
     });
 
+    it("ID can be set via the passed arguments", () => {
+        const id = 1;
+        const newEmployee = new Employee("Shelby", 1, "info@test.com");
+        expect(newEmployee.id).toEqual(id);
+    });
 
+    it("Email can be set via the passed arguments", () => {
+        const email = "info@test.com";
+        const newEmployee = new Employee("Shelby", 1, "info@test.com");
+        expect(newEmployee.email).toEqual(email);
+    });
+
+    it("getRole() can be set via the passed arguments", () => {
+        const role = "Employee";
+        const newEmployee = new Employee("Shelby", 1, "info@test.com", "Employee");
+        expect(newEmployee.getRole()).toEqual(role);
+    });
+    
 });

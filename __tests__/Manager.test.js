@@ -8,7 +8,7 @@ describe("Manager", () => {
     expect(manager.officeNumber).toEqual(test);
   });
 
-  it('getRole() to return "Manager"', () => {
+  it('Can getRole() to return "Manager"', () => {
     const test = "Manager";
     const manager = new Manager("Shelby", 1, "info@test.com", 9400000);
     expect(manager.getRole()).toEqual(test);
