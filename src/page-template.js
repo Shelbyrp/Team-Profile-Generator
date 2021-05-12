@@ -118,7 +118,7 @@ function createEngineerCard(engineer) {
         <div class="form-group">
                 <label for="reserve-phone" id="reserve-office-number">Github: <a href = "https://github.com/${
                   engineer.github
-                }">${engineer.github}</label>					
+                }">${engineer.github}</a></label>					
             </div>				
         </form>
     </div>
