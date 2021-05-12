@@ -1,0 +1,30 @@
+.ul {
+    list-style-type:none;
+    right: 0;
+    position: relative;
+}
+
+li {
+    float: left;
+    margin: 10px;
+}
+
+.cardbody {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #413f3f;
+}
+
+.jumbotron {
+    height: 150px;
+}
+
+.h2 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+label{
+    font-weight: bold;
+    font-size: 1.2rem;
+}

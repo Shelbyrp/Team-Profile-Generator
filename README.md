@@ -1,40 +1,38 @@
-
-    # a
+# Team Profile Generator
   
-    [![License: undefined](https://img.shields.io/badge/License-undefined-yellow.svg)](undefined)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
-    ## Description
-    undefined
+## Description
+undefined
   
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contributing](#contributing)
-    - [Credits](#credits)
-    - [Tests](#tests)
-    - [Questions](#questions)
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [Tests](#tests)
+- [Questions](#questions)
   
-    ## Installation 
-    undefined
+## Installation 
+undefined
   
-    ## Usage
-    undefined
+## Usage
+undefined
   
-    ## License
-    This team is licensed by the [undefined](undefined) license
+## License
+This team is licensed by the [undefined](undefined) license
   
-    ## Contributing 
-    undefined
+## Contributing 
+undefined
   
-    ## Credits
-    undefined
+## Credits
+undefined
   
-    ## Tests 
-    undefined
+## Tests 
+undefined
   
-    ## Questions
-    If you have any questions or require further clarification then please contact me at:
-    - https://github.com/undefined/
-    - a
-  
+## Questions
+If you have any questions or require further clarification then please contact me at:
+- https://github.com/undefined/
+- a 

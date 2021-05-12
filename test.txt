@@ -1,1 +1,1 @@
-[{"name":"a","id":"a","email":"a","office":"a","position":"Manager"},{"name":"b","id":"b","email":"b","GitHub":"b","position":"Engineer"},{"name":"c","id":"c","email":"c","school":"c","position":"Intern"},{"name":"d","id":"d","email":"d","hobby":"d","position":"d"},{"name":"e","id":"e","email":"e","GitHub":"e","position":"Engineer"},{"name":"f","id":"f","email":"f","school":"f","position":"Intern"},{"name":"g","id":"g","email":"g","hobby":"g","position":"g"}]
+[{"name":"a","id":"a","email":"a","office":"a"}]
