@@ -13,9 +13,8 @@ const Intern = require("./lib/Intern");
 const generateHTML = require("./src/page-template");
 
 async function userInput(status) {
-  //1}
   switch (
-    status //2}
+    status
   ) {
     case "confirm":
       // Confirm Manager
@@ -29,9 +28,8 @@ async function userInput(status) {
           },
         ])
         .then((response) => {
-          //3),4}
           switch (
-            response.manager //5}
+            response.manager
           ) {
             case "No":
               console.info("Please ask your manager to complete this form");
@@ -94,8 +92,8 @@ async function userInput(status) {
                   console.log(e.message);
                 });
               break;
-          } // 5}
-        }) //3), 4}
+          } 
+        })
         .catch((e) => {
           console.log(e.message);
         });
@@ -113,10 +111,9 @@ async function userInput(status) {
           },
         ])
         .then((response) => {
-          // 6),7}
           // If "NO" then exit
           switch (
-            response.addMember //8}
+            response.addMember 
           ) {
             case "No":
               console.log("The team information will be generated");
@@ -134,10 +131,9 @@ async function userInput(status) {
                 ])
                 // Get Engineer details
                 .then((response) => {
-                  // 9) & 10}
                   console.log(response);
                   switch (
-                    response.type // 11}
+                    response.type
                   ) {
                     case "Engineer":
                       inquirer
@@ -238,19 +234,19 @@ async function userInput(status) {
                           console.log(e.message);
                         });
                       break;
-                  } //11
-                }) //9,10
+                  } 
+                })
                 .catch((e) => {
                   console.log(e.message);
                 });
               break;
-          } //8
-        }) //6,7
+          }
+        })
         .catch((e) => {
           console.log(e.message);
         });
-  } //2
-} //1
+  } 
+} 
 
 function addNext(status) {
   userInput(status);
@@ -258,7 +254,7 @@ function addNext(status) {
 
 function writeToFile(teamInfo) {
   let filename = "test.txt";
-  let teamData = JSON.stringify(teamInfo); // <<<<< THIS MAY NOT WORK BUT YOU MAY NOT NEED THIS ANYWAY
+  let teamData = JSON.stringify(teamInfo);
   const html = generateHTML(teamInfo);
   console.log(html);
   writeFileAsync("./dist/team.html", html, "utf-8");
