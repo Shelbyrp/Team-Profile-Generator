@@ -54,28 +54,28 @@ function createManagerCard(manager) {
     <li>
     <div class="col-md-3">
     <div class="card cardbody">
-      <div class="card-header text-white" style="background: #007bff">
+      <div class="card-header text-white" style="background: #022142">
                     <div><h2>${manager.getRole()}</h2></div>
                   </div>
       <div class="card-body">
         <form role="form">	
         <div class="form-group">
-        <label class="title" for="reserve-unique-id" id="reserve-unique-id">NAME: ${
+        <label class="title" >NAME: ${
           manager.name
         }</label>
         </div>		
           <div class="form-group">
-              <label for="reserve-unique-id" id="reserve-unique-id">ID: ${
+              <label>ID: ${
                 manager.id
               }</label>
           </div>
           <div class="form-group">
-            <label for="reserve-email" id="reserve-email">Email: <a href = "mailto: ${
+            <label>Email: <a href = "mailto: ${
               manager.email
             }">${manager.email}</a></label>
           </div>
           <div class="form-group">
-              <label for="reserve-phone" id="reserve-office">Office Number: ${
+              <label>Office Number: ${
                 manager.officeNumber
               }</label>					
           </div>				
@@ -101,7 +101,7 @@ function createEngineerCard(engineer) {
     <div class="card-body">
       <form role="form">	
       <div class="form-group">
-      <label class="title" for="reserve-unique-id" id="reserve-unique-id">NAME: ${
+      <label class="title">NAME: ${
         engineer.name
       }</label>
       </div>		
@@ -111,12 +111,12 @@ function createEngineerCard(engineer) {
             }</label>
         </div>
         <div class="form-group">
-          <label for="reserve-email" id="reserve-email">Email: <a href = "mailto: ${
+          <label>Email: <a href = "mailto: ${
             engineer.email
           }">${engineer.email}</a></label>
         </div>
         <div class="form-group">
-                <label for="reserve-phone" id="reserve-office-number">Github: <a href = "https://github.com/${
+                <label>Github: <a href = "https://github.com/${
                   engineer.github
                 }">${engineer.github}</a></label>					
             </div>				
@@ -142,22 +142,22 @@ function makeInternCard(intern) {
     <div class="card-body">
       <form role="form">	
       <div class="form-group">
-      <label class="title" for="reserve-unique-id" id="reserve-unique-id">NAME: ${
+      <label class="title">NAME: ${
         intern.name
       }</label>
       </div>		
         <div class="form-group">
-            <label for="reserve-unique-id" id="reserve-unique-id">ID: ${
+            <label>ID: ${
               intern.id
             }</label>
         </div>
         <div class="form-group">
-        <label for="reserve-email" id="reserve-email">Email: <a href = "mailto: ${
+        <label>Email: <a href = "mailto: ${
           intern.email
         }">${intern.email}</a></label>
       </div>
         <div class="form-group">
-                <label for="reserve-phone" id="reserve-office-number">School: ${
+                <label>School: ${
                   intern.school
                 }</label>	
                 </label>					
